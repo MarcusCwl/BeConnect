@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "378924914486",
+    "firebase_url": "https://beconnect-88548.firebaseio.com",
+    "project_id": "beconnect-88548",
+    "storage_bucket": "beconnect-88548.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:378924914486:android:762f2e0a4642a16aedc597",
+        "android_client_info": {
+          "package_name": "com.bao.be_connect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "378924914486-6v24o36hj4i09h0juvmedcu7h9j1ijvi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bao.be_connect",
+            "certificate_hash": "054deb5d9c708e24eb3aedc0fac580957d1e7e6b"
+          }
+        },
+        {
+          "client_id": "378924914486-qkbeicrhf5ddre7ab9m2jt19dnvaoe55.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQCPnYaZkXZkYQo8EQ1XPUR8esgVB8Haw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "378924914486-qkbeicrhf5ddre7ab9m2jt19dnvaoe55.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
