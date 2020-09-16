@@ -1,7 +1,4 @@
-import 'package:be_connect/screens/CardDetailScreen.dart';
-import 'package:be_connect/screens/CardsBoxScreen.dart';
-import 'package:be_connect/screens/CreateCardScreen.dart';
-import 'package:be_connect/screens/EditCardScreen.dart';
+import 'package:be_connect/screens/cardsbox/CardsBoxScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -24,18 +21,14 @@ class HomeScreen extends StatelessWidget {
 class HomeScreenWidget extends StatefulWidget {
   HomeScreenWidget({Key key, this.title}) : super(key: key);
   final String title;
+
   @override
   HomeScreenWidgetState createState() => HomeScreenWidgetState();
 }
 
 class HomeScreenWidgetState extends State<HomeScreenWidget> with SingleTickerProviderStateMixin {
   TabController _tabController;
-  final List<Tab> titleTabs = <Tab>[
-    Tab(text: 'CardsBox'),
-    Tab(text: 'CardDetail'),
-    Tab(text: 'CreateCard'),
-    Tab(text: 'EditCard'),
-  ];
+  final List<Tab> titleTabs = <Tab>[Tab(text: 'MyCards'), Tab(text: 'CardsBox')];
 
   @override
   void initState() {
@@ -61,7 +54,7 @@ class HomeScreenWidgetState extends State<HomeScreenWidget> with SingleTickerPro
         ),
         body: TabBarView(
           controller: this._tabController,
-          children: <Widget>[CardsBoxScreen(), CardDetailScreen(), CreateCardScreen(), EditCardScreen()],
+          children: <Widget>[CardsBoxScreen(), CardsBoxScreen()],
         ));
   }
 }
