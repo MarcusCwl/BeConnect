@@ -1,8 +1,7 @@
 import 'package:be_connect/screens/cardsbox/CardsBoxScreen.dart';
+import 'package:be_connect/screens/home/HomeScreenUIs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
-void main() => runApp(HomeScreen());
 
 class HomeScreen extends StatelessWidget {
   // This widget is the root of your application.
@@ -14,6 +13,7 @@ class HomeScreen extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: HomeScreenWidget(title: 'Flutter Demo Home Page'),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -28,11 +28,13 @@ class HomeScreenWidget extends StatefulWidget {
 
 class HomeScreenWidgetState extends State<HomeScreenWidget> with SingleTickerProviderStateMixin {
   TabController _tabController;
+  HomeScreenUIs homeScreenUIs;
   final List<Tab> titleTabs = <Tab>[Tab(text: 'MyCards'), Tab(text: 'CardsBox')];
 
   @override
   void initState() {
     super.initState();
+    this.homeScreenUIs = new HomeScreenUIs();
     this._tabController = new TabController(vsync: this, length: titleTabs.length);
     this._tabController.addListener(() {
       print(this._tabController.toString());
@@ -45,16 +47,13 @@ class HomeScreenWidgetState extends State<HomeScreenWidget> with SingleTickerPro
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.black,
-          title: TabBar(
-            controller: this._tabController,
-            tabs: titleTabs,
-          ),
-        ),
-        body: TabBarView(
-          controller: this._tabController,
-          children: <Widget>[CardsBoxScreen(), CardsBoxScreen()],
-        ));
+      appBar: AppBar(backgroundColor: Colors.black, title: homeScreenUIs.buildHomeTabBar(_tabController, titleTabs)),
+      body: homeScreenUIs.buildHomeTabBarView(_tabController, <Widget>[CardsBoxScreen(), CardsBoxScreen()]),
+      floatingActionButton: homeScreenUIs.buildHomeFloatingActionButton(addNewCard),
+    );
+  }
+
+  void addNewCard() {
+    print('Try add new card');
   }
 }
