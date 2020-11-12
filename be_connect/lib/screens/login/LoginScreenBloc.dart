@@ -1,7 +1,5 @@
 import 'package:be_connect/screens/login/AuthBloc.dart';
 import 'package:be_connect/screens/login/LoginScreenUI.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:rxdart/rxdart.dart';
 
 class LoginScreenBloc {
@@ -21,6 +19,7 @@ class LoginScreenBloc {
   }
 
   void deActive() {
+    print('Login Screen bloc deActive');
     authBloc.deActive();
   }
 

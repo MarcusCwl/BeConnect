@@ -4,7 +4,15 @@ import 'package:flutter/widgets.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:rxdart/rxdart.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
+  SplashScreen({Key key, this.title}) : super(key: key);
+  final String title;
+
+  @override
+  SplashScreenState createState() => SplashScreenState();
+}
+
+class SplashScreenState extends State<SplashScreen> {
   final GoogleSignIn googleSignIn = GoogleSignIn();
   final CompositeSubscription compositeSubscription = new CompositeSubscription();
 
@@ -13,12 +21,24 @@ class SplashScreen extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    super.initState();
     initFlutterFire(context);
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
         body: Center(
       child: Text("Loading..."),
     ));
+  }
+
+  @override
+  void deactivate() {
+    print('Splash Screen deActive');
+    compositeSubscription.clear();
+    super.deactivate();
   }
 
   void initFlutterFire(BuildContext context) {

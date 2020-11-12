@@ -3,16 +3,8 @@ import 'package:be_connect/model/BusinessCard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class CardsBoxScreen extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return CardsBoxScreenWidget(title: 'Flutter Demo Home Page');
-  }
-}
-
-class CardsBoxScreenWidget extends StatefulWidget {
-  CardsBoxScreenWidget({Key key, this.title}) : super(key: key);
+class CardsBoxScreen extends StatefulWidget {
+  CardsBoxScreen({Key key, this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -29,7 +21,7 @@ class CardsBoxScreenWidget extends StatefulWidget {
   CardsBoxScreenWidgetState createState() => CardsBoxScreenWidgetState();
 }
 
-class CardsBoxScreenWidgetState extends State<CardsBoxScreenWidget> {
+class CardsBoxScreenWidgetState extends State<CardsBoxScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -3,23 +3,15 @@ import 'package:be_connect/screens/login/LoginScreenUI.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class LoginScreen extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return LoginScreenWidget(title: 'Flutter Demo Login Page');
-  }
-}
-
-class LoginScreenWidget extends StatefulWidget {
-  LoginScreenWidget({Key key, this.title}) : super(key: key);
+class LoginScreen extends StatefulWidget {
+  LoginScreen({Key key, this.title}) : super(key: key);
   final String title;
 
   @override
   LoginScreenWidgetState createState() => LoginScreenWidgetState();
 }
 
-class LoginScreenWidgetState extends State<LoginScreenWidget> with SingleTickerProviderStateMixin implements LoginScreenUI {
+class LoginScreenWidgetState extends State<LoginScreen> with SingleTickerProviderStateMixin implements LoginScreenUI {
   LoginScreenBloc loginScreenBloc;
 
   @override
@@ -44,9 +36,10 @@ class LoginScreenWidgetState extends State<LoginScreenWidget> with SingleTickerP
     );
   }
 
-  void login() {
-    print('Try login');
-    loginScreenBloc.loginWithGoogle();
+  @override
+  void deactivate() {
+    loginScreenBloc.deActive();
+    super.deactivate();
   }
 
   @override
@@ -57,5 +50,10 @@ class LoginScreenWidgetState extends State<LoginScreenWidget> with SingleTickerP
   @override
   void onLoginSuccess() {
     Navigator.pushReplacementNamed(context, '/AppHome');
+  }
+
+  void login() {
+    print('Try login');
+    loginScreenBloc.loginWithGoogle();
   }
 }
