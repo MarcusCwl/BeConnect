@@ -24,7 +24,7 @@ dependencies:
   firebase_auth: "^0.18.2"
   cloud_firestore: "^0.14.2"
   google_sign_in: "^4.5.1"
-  power_widget: "^0.0.52"
+  power_widget: "^0.0.53"
   rxdart: ^0.24.1
 
   # The following adds the Cupertino Icons font to your application.
