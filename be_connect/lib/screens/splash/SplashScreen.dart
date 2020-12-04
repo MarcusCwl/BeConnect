@@ -4,6 +4,8 @@ import 'package:flutter/widgets.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:rxdart/rxdart.dart';
 
+import '../routes.dart';
+
 class SplashScreen extends StatefulWidget {
   SplashScreen({Key key, this.title}) : super(key: key);
   final String title;
@@ -50,9 +52,9 @@ class SplashScreenState extends State<SplashScreen> {
 
   void moveToNextScreen(BuildContext context, bool isUserSignedIn) {
     if (isUserSignedIn) {
-      Navigator.pushReplacementNamed(context, '/AppHome');
+      Navigator.pushReplacementNamed(context, ROUTE_SPLASH);
     } else {
-      Navigator.pushReplacementNamed(context, '/Login');
+      Navigator.pushReplacementNamed(context, ROUTE_LOGIN);
     }
   }
 }

@@ -1,11 +1,11 @@
 import 'package:be_connect/customView/CardView.dart';
 import 'package:be_connect/customView/NameCard.dart';
 import 'package:be_connect/customView/factory/CardViewFactory.dart';
-import 'package:be_connect/model/BusinessCard.dart';
+import 'package:be_connect/model/view/BusinessCardViewModel.dart';
 import 'package:flutter/material.dart';
 
 class CardListView extends StatelessWidget {
-  List<BusinessCard> cardList;
+  List<BusinessCardViewModel> cardList;
 
   CardListView(this.cardList);
 

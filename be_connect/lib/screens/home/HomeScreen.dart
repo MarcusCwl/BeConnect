@@ -1,5 +1,7 @@
+import 'package:be_connect/cardstore/CloudCardManager.dart';
 import 'package:be_connect/screens/cardsbox/CardsBoxScreen.dart';
 import 'package:be_connect/screens/home/HomeScreenUIs.dart';
+import 'package:be_connect/screens/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -12,18 +14,19 @@ class HomeScreen extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomeScreenWidget(title: 'Flutter Demo Home Page'),
+      home: HomeScreenWidget(title: 'Flutter Demo Home Page', homeScreenUIs: new HomeScreenUIs()),
       debugShowCheckedModeBanner: false,
     );
   }
 }
 
 class HomeScreenWidget extends StatefulWidget {
-  HomeScreenWidget({Key key, this.title}) : super(key: key);
+  HomeScreenWidget({Key key, this.title, this.homeScreenUIs}) : super(key: key);
   final String title;
+  HomeScreenUIs homeScreenUIs;
 
   @override
-  HomeScreenWidgetState createState() => HomeScreenWidgetState();
+  HomeScreenWidgetState createState() => HomeScreenWidgetState(homeScreenUIs);
 }
 
 class HomeScreenWidgetState extends State<HomeScreenWidget> with SingleTickerProviderStateMixin {
@@ -31,10 +34,11 @@ class HomeScreenWidgetState extends State<HomeScreenWidget> with SingleTickerPro
   HomeScreenUIs homeScreenUIs;
   final List<Tab> titleTabs = <Tab>[Tab(text: 'MyCards'), Tab(text: 'CardsBox')];
 
+  HomeScreenWidgetState(this.homeScreenUIs);
+
   @override
   void initState() {
     super.initState();
-    this.homeScreenUIs = new HomeScreenUIs();
     this._tabController = new TabController(vsync: this, length: titleTabs.length);
     this._tabController.addListener(() {
       print(this._tabController.toString());
@@ -54,6 +58,6 @@ class HomeScreenWidgetState extends State<HomeScreenWidget> with SingleTickerPro
   }
 
   void addNewCard() {
-    print('Try add new card');
+    Navigator.pushReplacementNamed(context, ROUTE_EDIT_CARD);
   }
 }

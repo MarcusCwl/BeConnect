@@ -1,5 +1,5 @@
 import 'package:be_connect/customView/CardListView.dart';
-import 'package:be_connect/model/BusinessCard.dart';
+import 'package:be_connect/model/view/BusinessCardViewModel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
